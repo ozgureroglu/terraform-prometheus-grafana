@@ -9,6 +9,7 @@ module "prometheus" {
   instance_ami        = data.aws_ami.ubuntu.id
   instance_profile    = aws_iam_instance_profile.ec2_profile.name
   instance_type       = var.instance_type_prometheus
+  availability_zone   = var.availability_zone
 }
 
 module "alertmanager" {
@@ -22,6 +23,7 @@ module "alertmanager" {
   instance_ami        = data.aws_ami.ubuntu.id
   instance_profile    = aws_iam_instance_profile.ec2_profile.name
   instance_type       = var.instance_type_alertmanager
+  availability_zone   = var.availability_zone
 }
 
 module "grafana" {
@@ -35,6 +37,7 @@ module "grafana" {
   instance_ami        = data.aws_ami.ubuntu.id
   instance_profile    = aws_iam_instance_profile.ec2_profile.name
   instance_type       = var.instance_type_grafana
+  availability_zone   = var.availability_zone
 }
 
 data "aws_ami" "ubuntu" {

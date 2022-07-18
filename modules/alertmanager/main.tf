@@ -1,7 +1,7 @@
 resource "aws_instance" "instance" {
   ami               = var.instance_ami
   instance_type     = var.instance_type
-  availability_zone = "eu-central-1c"
+  availability_zone = var.availability_zone
   user_data = templatefile("${path.module}/cloud.conf", {
     hostname           = var.hostname
     config_bucket_name = var.config_bucket_name

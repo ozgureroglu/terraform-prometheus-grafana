@@ -1,0 +1,8 @@
+module "monitoring" {
+  source = "github.com/ozgureroglu/terraform-prometheus-grafana.git"
+
+  prometheus_hostname   = "prometheus.example.com"
+  alertmanager_hostname = "alertmanager.example.com"
+  grafana_hostname      = "grafana.example.com"
+  config_bucket_name    = "my-monitoring-config"
+}

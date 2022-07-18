@@ -3,6 +3,11 @@ variable "hostname_prometheus" {
   type        = string
 }
 
+variable "availability_zone" {
+  description = "Availability zone for ec2"
+  type        = string  
+}
+
 variable "hostname_alertmanager" {
   description = "Hostname for Alertmanager"
   type        = string

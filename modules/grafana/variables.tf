@@ -3,6 +3,11 @@ variable "hostname" {
   type        = string
 }
 
+variable "availability_zone" {
+  description = "Availability zone for ec2"
+  type        = string  
+}
+
 variable "instance_type" {
   description = "Instance type for EC2 instance"
   type        = string
