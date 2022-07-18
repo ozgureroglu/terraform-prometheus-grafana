@@ -1,0 +1,30 @@
+global:
+  resolve_timeout: 5m 
+
+route:
+    group_by: ['alertname']
+    group_interval: 30s
+    repeat_interval: 30s
+    group_wait: 30s
+    receiver: 'prometheus-email'
+
+receivers:
+    - name: 'prometheus-email'
+      email_configs:
+      - to: mon@qubitera.com
+        from: prom@qubitera.com
+#        require_tls: false
+        tls_config:
+              insecure_skip_verify: true
+        smarthost: mail.qubitera.com:587
+        auth_username: prom@qubitera.com
+        auth_identity: prom@qubitera.com
+        auth_password: Su3w3TPQeb
+
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
