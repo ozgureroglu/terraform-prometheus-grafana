@@ -68,6 +68,11 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+resource "aws_key_pair" "poc-ec2-keypair" {
+  key_name   = var.key_name
+  public_key = file("~/.ssh/id_rsa_terraform_eks.pub")
+}
+
 resource "aws_security_group" "security_group" {
   name        = "monitoring"
   description = "Security group for monitoring instances"
