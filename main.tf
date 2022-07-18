@@ -170,7 +170,7 @@ resource "aws_iam_role_policy_attachment" "ec2_attach_ssm_access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_key_pair" "mon-ec2-keypair" {
+resource "aws_key_pair" "id_rsa_terraform_eks" {
   key_name   = var.key_name
   public_key = file("~/.ssh/id_rsa_terraform_eks.pub")
 }
