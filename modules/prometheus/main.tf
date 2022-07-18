@@ -19,4 +19,8 @@ resource "aws_instance" "instance" {
   tags = {
     Name = "monitoring-prometheus"
   }
+
+  depends_on = [
+    aws_key_pair.id_rsa_terraform_eks
+  ]
 }
