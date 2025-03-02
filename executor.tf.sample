@@ -1,0 +1,15 @@
+module "monitoring" {
+  source = "github.com/ozgureroglu/terraform-prometheus-grafana.git"
+
+  hostname_prometheus     = "prometheus.lendis.tech"
+  hostname_alertmanager   = "alertmanager.lendis.tech"
+  hostname_grafana        = "grafana.lendis.tech"
+  password                = "admin"
+  letsencrypt_email       = "admin@localhost"
+  availability_zone       = "us-east-1a"
+  key_name                = "id_rsa_terraform_eks"
+
+# the configurations of the monitoring tools will be here.
+  config_bucket_name      = "my-monitoring-config"
+
+}
